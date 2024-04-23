@@ -1,0 +1,3 @@
+public enum values {
+    ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, REVERSE, SKIP, DRAW_2, WILD, WILD_DRAW_4;
+}
