@@ -8,4 +8,7 @@ public class Card {
     public boolean match(Card other) {
         return this.color == other.color || this.value == other.value;
     }
+    public String toString() {
+        return color + " " + value;
+    }
 }
