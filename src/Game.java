@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Game {
-    private Player[] players;
+    private final Player[] players;
     private Deck deck;
     private int index;
     private boolean reverse;
@@ -34,5 +34,15 @@ public class Game {
             }
         }
     }
-
+    public String getInfo() {
+        StringBuilder s = new StringBuilder();
+        Player current_player = players[index];
+        s.append(current_player.name).append("'s turn.\n");
+        for(Player p: players) {
+            s.append(p.name).append(": ").append(p.getCardAmount()).append(" Cards.\n");
+        }
+        s.append("Last Card: ").append(deck.getLastCard()).append("\n");
+        s.append(current_player.getTurnInfo());
+        return s.toString();
+    }
 }
