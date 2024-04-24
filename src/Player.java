@@ -10,4 +10,12 @@ public abstract class Player {
     public boolean isWinner() {
         return cards.isEmpty();
     }
+    public int getCardAmount() {
+        return cards.size();
+    }
+    public abstract String getTurnInfo();
+    public abstract Card askForCard(Card last_Card);
+    public void addCard(Card new_card) {
+        cards.add(new_card);
+    }
 }
