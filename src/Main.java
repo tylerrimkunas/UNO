@@ -17,15 +17,15 @@ public class Main {
         Player winner = null;
         System.out.println("Game starts now!");
         while(winner == null) {
-            //game.getInfo();
-
+            System.out.println(game.getInfo());
+            //game.processTurn();
             winner = game.checkWinner();
         }
     }
 
     public static int howManyBots() {
         Scanner input = new Scanner(System.in);
-        int botNum = 0;
+        int botNum;
         while(true) {
             try {
                 botNum = input.nextInt();
@@ -44,7 +44,7 @@ public class Main {
 
     public static String askName() {
         Scanner input = new Scanner(System.in);
-        String name = "";
+        String name;
         while(true) {
             try {
                 name = input.nextLine();
