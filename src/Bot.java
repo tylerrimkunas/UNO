@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Bot extends Player{
     public Bot(String name, ArrayList<Card> cards) {
