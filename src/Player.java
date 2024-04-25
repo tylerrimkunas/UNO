@@ -18,4 +18,6 @@ public abstract class Player {
     public void addCard(Card new_card) {
         cards.add(new_card);
     }
+
+    public abstract colors askForColor();
 }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Human extends Player{
     public Human(String name, ArrayList<Card> cards) {
@@ -33,5 +34,10 @@ public class Human extends Player{
             System.out.println("This card cannot be matched with the last card");
         }
         return cards.remove(choice - 1);
+    }
+
+    @Override
+    public colors askForColor() {
+        return null;
     }
 }

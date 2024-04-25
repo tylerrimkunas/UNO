@@ -20,4 +20,26 @@ public class Bot extends Player{
         }
         return null;
     }
+
+    @Override
+    public colors askForColor() { //todo: make better
+        HashMap<colors, Integer> map = new HashMap<>();
+        for(Card c: cards) {
+            if(c.getColor() == colors.WILD) {
+                continue;
+            }
+            map.put(c.getColor(), map.get(c.getColor()) + 1);
+        }
+        Map.Entry<colors, Integer> highest = null;
+        for(Map.Entry<colors, Integer> entry: map.entrySet()) {
+            if(highest == null) {
+                highest = entry;
+            }
+            else if(highest.getValue() < entry.getValue()) {
+                highest = entry;
+            }
+        }
+        assert highest != null;
+        return highest.getKey();
+    }
 }
