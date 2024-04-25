@@ -38,6 +38,24 @@ public class Human extends Player{
 
     @Override
     public colors askForColor() {
-        return null;
+        Scanner input = new Scanner(System.in);
+        System.out.println("Which color would you like(yellow, blue, green, red): ");
+        String choice = input.nextLine();
+        switch(choice.toLowerCase()) {
+            case "yellow" -> {
+                return colors.YELLOW;
+            }
+            case "blue" -> {
+                return colors.BLUE;
+            }
+            case "green" -> {
+                return colors.GREEN;
+            }
+            case "red" -> {
+                return colors.RED;
+            }
+        }
+        System.out.println("Bad input! Try again");
+        return askForColor();
     }
 }
