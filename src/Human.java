@@ -11,7 +11,7 @@ public class Human extends Player{
         StringBuilder s = new StringBuilder();
         s.append("Your cards are: ");
         for(int i = 0; i < cards.size(); i++) {
-            s.append(i + 1).append(". ").append(cards.get(i));
+            s.append(i + 1).append(". ").append(cards.get(i)).append(" ");
         }
         s.append("\n");
         s.append("Which card would you like to choose (use the number next to it or type 0 for new card): ");
@@ -19,7 +19,7 @@ public class Human extends Player{
     }
 
     @Override
-    public Card askForCard(Card last_Card) {
+    public Card askForCard(Card last_Card) { //todo: print cards after picking up card
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
         if(choice < 0 || choice > cards.size()) {
