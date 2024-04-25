@@ -18,8 +18,11 @@ public class Main {
         System.out.println("Game starts now!");
         while(winner == null) {
             System.out.println(game.getInfo());
-            //game.processTurn();
+            System.out.println(game.processTurn());
             winner = game.checkWinner();
+            if(winner == null) {
+                game.next();
+            }
         }
     }
 
