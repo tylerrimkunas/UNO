@@ -30,8 +30,8 @@ public class Deck {
            }
            else { // WILD CARDS
                for(int i = 0; i < 4; i++) { //4 WILD CARDS EACH
-                   deck.push(new Card(c, values.WILD)); //TODO: make an actionCard class
-                   deck.push(new Card(c, values.WILD_DRAW_4));
+                   deck.push(new Card(c, values.CHANGE_COLOR)); //TODO: make an actionCard class
+                   deck.push(new Card(c, values.DRAW_4));
                }
            }
         }
