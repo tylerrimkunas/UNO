@@ -1,5 +1,5 @@
 public class Card {
-    public final colors color;
+    protected colors color;
     public final values value;
     public Card(colors color, values value) {
         this.color = color;
@@ -10,5 +10,9 @@ public class Card {
     }
     public String toString() {
         return color + " " + value;
+    }
+
+    public colors getColor() {
+        return color;
     }
 }
