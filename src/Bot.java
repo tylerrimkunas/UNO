@@ -7,11 +7,17 @@ public class Bot extends Player{
 
     @Override
     public String getTurnInfo() {
-        return null;
+        return name + ": Thinking of its move";
     }
 
     @Override
     public Card askForCard(Card last_Card) {
+        for(Card c: cards) {
+            if(c.match(last_Card)) {
+                cards.remove(c);
+                return c;
+            }
+        }
         return null;
     }
 }
