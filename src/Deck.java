@@ -16,22 +16,30 @@ public class Deck {
                    if(v == values.ZERO) { //ONLY ONE ZERO CARD
                        deck.push(new Card(c, v));
                    }
-                   else if(v.compareTo(values.NINE) >= 0) { //NUMBERED CARDS
+                   else if(v.compareTo(values.NINE) <= 0) { //NUMBERED CARDS
                        for(int i = 0; i < 2; i++) {
                            deck.push(new Card(c, v));
                        }
                    }
-                   else { //COLORED ACTION CARDS
+                   else if(v.compareTo(values.DRAW_2) <= 0){ //COLORED ACTION CARDS
                        for(int i = 0; i < 2; i++) {
-                           deck.push(new Card(c, v)); //TODO: make actionCard class
+                           if(v == values.DRAW_2) {
+                               deck.push(new Draw2Card(c, v));
+                           }
+                           else if(v == values.REVERSE) {
+                               deck.push(new ReverseCard(c, v));
+                           }
+                           else if(v == values.SKIP) {
+                               deck.push(new SkipCard(c, v));
+                           }
                        }
                    }
                }
            }
            else { // WILD CARDS
                for(int i = 0; i < 4; i++) { //4 WILD CARDS EACH
-                   deck.push(new Card(c, values.CHANGE_COLOR)); //TODO: make an actionCard class
-                   deck.push(new Card(c, values.DRAW_4));
+                   deck.push(new ChangeColorCard(c, values.CHANGE_COLOR));
+                   deck.push(new Draw4Card(c, values.DRAW_4));
                }
            }
         }
