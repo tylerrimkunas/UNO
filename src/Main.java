@@ -24,6 +24,7 @@ public class Main {
                 game.next();
             }
         }
+        System.out.println("The winner is: " + winner.name);
     }
 
     public static int howManyBots() {
