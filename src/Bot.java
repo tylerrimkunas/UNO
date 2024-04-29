@@ -14,6 +14,7 @@ public class Bot extends Player{
 
     @Override
     public Card askForCard(Card last_Card) {
+        System.out.println(getTurnInfo());
         for(Card c: cards) {
             if(c.match(last_Card)) {
                 cards.remove(c);

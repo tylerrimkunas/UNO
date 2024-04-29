@@ -7,7 +7,7 @@ public class Human extends Player{
     }
 
     @Override
-    public String getTurnInfo() { //todo: stupid method, remove and combine with askForCard()
+    public String getTurnInfo() {
         StringBuilder s = new StringBuilder();
         s.append("Your cards are: ");
         for(int i = 0; i < cards.size(); i++) {
@@ -19,7 +19,8 @@ public class Human extends Player{
     }
 
     @Override
-    public Card askForCard(Card last_Card) { //todo: print cards after picking up card
+    public Card askForCard(Card last_Card) {
+        System.out.println(getTurnInfo());
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
         if(choice < 0 || choice > cards.size()) {
