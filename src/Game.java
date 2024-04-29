@@ -21,16 +21,7 @@ public class Game {
         else return null;
     }
     public void next() {
-        if(reverse) {
-            if(--index < 0) {
-                index = players.length - 1;
-            }
-        }
-        else {
-            if(++index >= players.length) {
-                index = 0;
-            }
-        }
+        index = getNextPlayer();
     }
     public String getInfo() {
         StringBuilder s = new StringBuilder();
@@ -40,10 +31,10 @@ public class Game {
             s.append(p.name).append(": ").append(p.getCardAmount()).append(" Cards.\n");
         }
         s.append("Last Card: ").append(deck.getLastCard()).append("\n");
-        s.append(current_player.getTurnInfo());
+        //s.append(current_player.getTurnInfo());
         return s.toString();
     }
-    public String processTurn() { //todo: build a String that narrates the actions being taken
+    public String processTurn() { //todo: improve narration. Sometimes out of order.
         StringBuilder s = new StringBuilder();
         Player current_player = players[index];
         Card c = current_player.askForCard(deck.getLastCard());
@@ -52,7 +43,7 @@ public class Game {
             s.append(current_player.name).append(": taking card from deck\n").append(processTurn());
         }
         else {
-            s.append(current_player.name).append(": placed a ").append(c);
+            s.append(current_player.name).append(": placed a ").append(c).append("\n");
             if(c instanceof ActionCard ac) {
                 s.append(ac.doAction(this));
             }
@@ -66,7 +57,7 @@ public class Game {
     }
 
     public void draw(int i) {
-        Player victim = players[index + 1];
+        Player victim = players[getNextPlayer()];
         for(int j = 0; j < i; j++) {
             victim.addCard(deck.takeCard());
         }
@@ -74,5 +65,20 @@ public class Game {
 
     public colors changeColor() {
         return players[index].askForColor();
+    }
+
+    private int getNextPlayer() {
+        int i = index;
+        if(reverse) {
+            if(--i < 0) {
+                return players.length - 1;
+            }
+        }
+        else {
+            if(++i >= players.length) {
+                return 0;
+            }
+        }
+        return i;
     }
 }
