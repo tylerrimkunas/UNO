@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Human extends Player{
@@ -22,7 +23,13 @@ public class Human extends Player{
     public Card askForCard(Card last_Card) {
         System.out.println(getTurnInfo());
         Scanner input = new Scanner(System.in);
-        int choice = input.nextInt();
+        int choice;
+        try {
+            choice = input.nextInt();
+        } catch(InputMismatchException e) {
+            System.out.println("Not a number! Try again: ");
+            return askForCard(last_Card);
+        }
         if(choice < 0 || choice > cards.size()) {
             System.out.println("Out of range! Try again: ");
             return askForCard(last_Card);
