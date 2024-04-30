@@ -48,13 +48,12 @@ public class Deck {
         discard.push(deck.pop()); // PLACE STARTING CARD
 
     }
-    public boolean isEmpty() {
-        return deck.isEmpty();
-    }
     public void reshuffle() {
+        Card last_card = discard.pop();
         Collections.shuffle(discard);
         deck = discard;
         discard = new Stack<>();
+        discard.push(last_card);
     }
 
     public Card takeCard() {
