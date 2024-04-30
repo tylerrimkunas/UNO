@@ -1,2 +1,2 @@
-UNO
-UNO is a program to play the iconic card game featuring matching cards based on their color and value. It is turned based, has fully implemented bots and action cards. It is written in Java and is a text-based game.
+# UNO
+UNO is a program that allows you to play the iconic card game of the same name. The goal of the game is to match cards by color and value. The game is turn-based and includes fully implemented bots and action cards. The game is written in Java and is text-based.
