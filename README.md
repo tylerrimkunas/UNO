@@ -4,3 +4,4 @@ UNO is a program that allows you to play the iconic card game of the same name. 
 ## Future Changes
 1. Add a GUI using either JavaScript or Swing.
 2. Add multiplayer.
+3. Add multi-threading to include jump-in cards.
