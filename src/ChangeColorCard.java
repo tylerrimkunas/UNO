@@ -16,4 +16,9 @@ public class ChangeColorCard extends ActionCard{
         return fake_color;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " (" + fake_color + ")";
+    }
+
 }
