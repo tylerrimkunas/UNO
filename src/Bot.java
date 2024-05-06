@@ -28,10 +28,17 @@ public class Bot extends Player{
     public colors askForColor() { //todo: make better
         HashMap<colors, Integer> map = new HashMap<>();
         for(Card c: cards) {
-            if(c.getColor() == colors.WILD) {
+            if(c instanceof ChangeColorCard) {
                 continue;
             }
-            map.put(c.getColor(), map.get(c.getColor()) + 1);
+            int color_count;
+            try {
+                color_count = map.get(c.getColor());
+            }
+            catch (NullPointerException e) {
+                color_count = 0;
+            }
+            map.put(c.getColor(), color_count + 1);
         }
         Map.Entry<colors, Integer> highest = null;
         for(Map.Entry<colors, Integer> entry: map.entrySet()) {
