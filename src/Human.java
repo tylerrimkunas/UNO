@@ -40,6 +40,7 @@ public class Human extends Player{
         }
         else if(!cards.get(choice - 1).match(last_Card)) {
             System.out.println("This card cannot be matched with the last card");
+            return askForCard(last_Card);
         }
         return cards.remove(choice - 1);
     }
