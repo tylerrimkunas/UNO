@@ -6,7 +6,7 @@ public class Card {
         this.value = value;
     }
     public boolean match(Card other) {
-        return this.color == other.color || this.value == other.value;
+        return this.color == other.getColor() || this.value == other.value || this.color == colors.WILD;
     }
     public String toString() {
         return color + " " + value;
