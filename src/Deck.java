@@ -67,7 +67,7 @@ public class Deck {
 
     public ArrayList<Card> dealToPlayer() {
         ArrayList<Card> cards = new ArrayList<>();
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < 7; i++) {
             cards.add(takeCard());
         }
         return cards;

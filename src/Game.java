@@ -39,8 +39,17 @@ public class Game {
         Player current_player = players[index];
         Card c = current_player.askForCard(deck.getLastCard());
         if(c == null) {
-            current_player.addCard(deck.takeCard());
-            s.append(current_player.name).append(": taking card from deck\n").append(processTurn());
+            s.append(current_player.name).append(": taking card from deck\n");
+            Card new_card = deck.takeCard();
+            if(new_card.match(deck.getLastCard())) {
+                s.append(current_player.name).append(": the card from deck matches and is a ").append(new_card).append("\n");
+                if(new_card instanceof ActionCard ac) {
+                    s.append(ac.doAction(this));
+                }
+                deck.putCard(new_card);
+            }
+            current_player.addCard(new_card);
+
         }
         else {
             s.append(current_player.name).append(": placed a ").append(c).append("\n");
